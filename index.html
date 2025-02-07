@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Kepler Mission Data Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/wavesurfer.js@5.2.0/dist/wavesurfer.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@5.2.0/dist/plugin/wavesurfer.spectrogram.min.js"></script>
+    <script src="audio.js"></script>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <header>
+            <h1>Kepler Space Mission</h1>
+            <div class="subtitle">NASA's Revolutionary Exoplanet Hunter</div>
+        </header>
+
+        <main>
+            <section class="intro">
+                <div class="mission-stats">
+                    <div class="stat-card">
+                        <h3>Mission Duration</h3>
+                        <p>2009 - 2018</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Exoplanets Found</h3>
+                        <p>2,600+</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Stars Observed</h3>
+                        <p>530,000+</p>
+                    </div>
+                </div>
+
+                <div class="mission-description">
+                    <h2>About the Mission</h2>
+                    <p>The Kepler Space Telescope, launched by NASA in 2009, revolutionized our understanding of planets beyond our solar system. Named after the 17th-century astronomer Johannes Kepler, this space observatory was designed with a singular purpose: to discover Earth-size planets orbiting other stars.</p>
+                    
+                    <h2>The Legacy</h2>
+                    <p>During its nine-year mission, Kepler surveyed just one patch of sky in the northern hemisphere, determining that planets are common throughout the Milky Way galaxy. The most recent analysis of Kepler's discoveries shows that 20-50% of the stars visible in the night sky are likely to have small, possibly rocky planets similar in size to Earth within their habitable zones.</p>
+                </div>
+            </section>
+
+            <section class="ai-interaction">
+                <h2>Ask About Kepler Mission</h2>
+                <div class="ai-input-container">
+                    <textarea 
+                        id="userQuestion" 
+                        placeholder="Ask a question about the Kepler mission or exoplanets..."
+                        rows="3"
+                    ></textarea>
+                    <button id="askButton" class="ask-button">
+                        <span class="button-text">Ask AI</span>
+                        <div class="loading-spinner hidden"></div>
+                    </button>
+                </div>
+                <div id="aiResponse" class="ai-response hidden">
+                    <h3>AI Response</h3>
+                    <p id="responseText"></p>
+                </div>
+            </section>
+
+            <section class="data-explanation">
+                <h2>Understanding Kepler Data</h2>
+                <div class="explanation-grid">
+                    <div class="explanation-card">
+                        <h3>Light Curves</h3>
+                        <p>Light curves are graphs showing a star's brightness over time. When a planet passes in front of its star (called a transit), it creates a distinctive dip in the star's brightness. These periodic dips help us detect and study exoplanets.</p>
+                    </div>
+                    <div class="explanation-card">
+                        <h3>Data Collection</h3>
+                        <p>Kepler monitored over 150,000 stars simultaneously, measuring their brightness every 30 minutes. This created detailed light curves that reveal not only planets but also other stellar phenomena.</p>
+                    </div>
+                    <div class="explanation-card">
+                        <h3>Transit Method</h3>
+                        <p>The depth of the brightness dip indicates the planet's size relative to its star. The timing between dips reveals the planet's orbital period, while the duration provides clues about its orbital distance.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="data-viz">
+                <h2>Interactive Light Curve Explorer</h2>
+                <div class="viz-container">
+                    <iframe 
+                        src="./kepler_viz.html" 
+                        id="kepler-plot"
+                        frameborder="0" 
+                        scrolling="no"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="viz-legend">
+                    <h3>How to Read This Plot</h3>
+                    <ul>
+                        <li>X-axis: Time (days from mission start)</li>
+                        <li>Y-axis: Star brightness (normalized flux)</li>
+                        <li>Dips in brightness may indicate planetary transits</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <section class="audio-viz">
+            <h2>Kepler Sound Experience</h2>
+            <div class="audio-container">
+                <div class="audio-player">
+                    <div class="waveform-container">
+                        <div id="waveform"></div>
+                    </div>
+                    <audio id="keplerAudio" controls>
+                        <source src="./kepler_sonification.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <p class="audio-description">
+                    Experience the sonification of Kepler light curve data - where dips in starlight are converted into sound waves, creating a unique audio representation of exoplanet transits.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Data source: NASA Kepler Mission via MAST Archive</p>
+            <p>© 2024 Space Data Explorer</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
